@@ -7,54 +7,55 @@ from typing import List, Dict, Any
 
 PIPELINE_STAGES = [
     {
-        "stage": "PUBLIC ARTIFACTS",
-        "description": "Unstructured public web footprint (posts, videos, changelogs, forum threads).",
-        "prototype": "Curated 25+ synthetic and public-inspired records.",
-        "production": "Permitted REST APIs (X API v2, Product Hunt GraphQL, YouTube Data v3) & RSS/Atom feeds."
+        "stage": "1. PUBLIC SOURCES",
+        "description": "Publicly observable web footprint (X posts, videos, changelogs, forum threads).",
+        "prototype": "Curated 25+ public-artifact analyses and synthetic reference records.",
+        "production": "Permitted REST APIs (X API v2, Product Hunt GraphQL, YouTube Data v3) & RSS feeds."
     },
     {
-        "stage": "COLLECT",
-        "description": "Continuous ingestion with deduplication and provenance hashing.",
-        "prototype": "In-memory Python dictionaries and Pandas DataFrames.",
-        "production": "Distributed Celery/Redis ingestion queue with two-stage deterministic filtering (as built in candidate's API Deprecation Monitoring Platform)."
+        "stage": "2. INGESTION",
+        "description": "Raw payload ingestion with provenance metadata (source URL, author handle, platform timestamp).",
+        "prototype": "In-memory Python dictionaries and Pandas DataFrames with source provenance.",
+        "production": "Asynchronous REST ingestion endpoints with deduplication and SHA-256 provenance hashing."
     },
     {
-        "stage": "STRUCTURE",
-        "description": "Normalize heterogeneous platform payloads into standard Pydantic document models.",
+        "stage": "3. NORMALIZATION",
+        "description": "Normalize heterogeneous platform payloads into standard Pydantic models with relative day offsets (Day -7 → +3).",
         "prototype": "LaunchArtifact Pydantic model with day offsets and engagement fields.",
-        "production": "FastAPI ingestion endpoints writing to MongoDB document collections with schema validation."
+        "production": "FastAPI normalization service writing to MongoDB document collections with strict schema validation."
     },
     {
-        "stage": "CLASSIFY",
-        "description": "Classify narrative theme, author archetype, hook type, and CTA intent.",
-        "prototype": "Deterministic keyword mapping and pre-labeled illustrative tags.",
-        "production": "Two-stage classifier: fast regex/heuristic pre-filtering followed by structured LLM JSON outputs (JSON mode / Pydantic schema enforcement)."
+        "stage": "4. RESEARCH AGENT",
+        "description": "Gathers and structures evidence using constrained retrieval tools.",
+        "prototype": "Tool-equipped agent using get_artifact(), filter_artifacts(), get_launch_timeline(), search_artifacts().",
+        "production": "Tool-augmented agent querying MongoDB document collections and chronological indexes."
     },
     {
-        "stage": "CONNECT",
-        "description": "Build temporal graph relating founder, creator, post, narrative, and launch phase.",
-        "prototype": "Chronological timeline index with author-type clustering.",
-        "production": "Graph representation in NetworkX/Neo4j linking narrative threads across platforms and measuring network diffusion velocity."
+        "stage": "5. PATTERN HUNTER",
+        "description": "Detects recurring temporal sequences, author handoffs, and format distributions.",
+        "prototype": "Tool-equipped agent using count_by(), compare_launches(), find_sequences(), calculate_statistics().",
+        "production": "Statistical sequence mining across normalized cohort graphs."
     },
     {
-        "stage": "GENERATE HYPOTHESES",
-        "description": "Pattern Hunter agent surfaces recurring sequences and correlation clusters.",
-        "prototype": "Pre-computed pattern clusters and interactive sandbox query mapper.",
-        "production": "ReAct-style Pattern Hunter agent equipped with SQL/Pandas tools to query statistical distribution anomalies."
+        "stage": "6. SKEPTIC AGENT",
+        "description": "Actively seeks counterexamples, tests confounders, and enforces epistemic bounds.",
+        "prototype": "Adversarial agent using find_counterexamples(), inspect_artifacts(), compare_groups().",
+        "production": "Automated adversarial verification evaluating against null hypotheses and penalizing missing conversion telemetry."
     },
     {
-        "stage": "CHALLENGE HYPOTHESES",
-        "description": "Skeptic agent actively seeks counterexamples and tests for confounding variables.",
-        "prototype": "Deterministic counterevidence retrieval showing exceptions and confidence caps.",
-        "production": "Adversarial Skeptic agent that formulates null hypotheses, searches for counterexamples, and penalizes claims lacking attribution data."
+        "stage": "7. HUMAN REVIEW",
+        "description": "Interactive researcher interrogation with 'Why This Insight?' audits and counterexample inspection.",
+        "prototype": "Streamlit research terminal with epistemic badges and interactive Skeptic Sandbox.",
+        "production": "Executive research console with verifiable citation links and provenance audit trails."
     },
     {
-        "stage": "GENERATE INSIGHTS",
-        "description": "Synthesize epistemically bounded intelligence report for human strategic review.",
-        "prototype": "Interactive insight cards with 'Why This Insight?' breakdown.",
-        "production": "Human-in-the-loop executive research console with exportable Markdown/PDF dossiers and verifiable citation links."
+        "stage": "8. INSIGHT DOSSIER",
+        "description": "Epistemically calibrated intelligence report separating surviving patterns from data gaps.",
+        "prototype": "'What Did We Actually Learn?' report separating patterns, counterevidence, and missing telemetry.",
+        "production": "Automated research dossiers exported to Markdown/JSON with calibrated confidence ratings."
     }
 ]
+
 
 
 RESUME_CONNECTIONS = [

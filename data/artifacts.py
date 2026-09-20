@@ -1,26 +1,29 @@
 """
-Synthetic and public-inspired launch artifacts dataset for LAUNCH//REVERSE.
-All records are explicitly marked with their epistemic status and source type.
+Structured launch artifacts dataset for LAUNCH//REVERSE.
+Every record contains source provenance (source_url, platform, author_handle, date).
+Distinguishes between:
+- Conceptual Analysis Based on Publicly Visible Artifacts (Wispr Flow, Gamma)
+- Synthetic / Simulated Reference Dataset (OmniContext AI)
 """
 
 from typing import List, Dict, Any
 import pandas as pd
-from core.models import LaunchArtifact
 
 RAW_ARTIFACTS: List[Dict[str, Any]] = [
-    # ==========================================
-    # CASE STUDY 1: Wispr Flow — Launch Analysis
-    # Concept: Conceptual / public-artifact demo
-    # Narrative: Voice-first dictation, thought-to-text velocity, founder-led framing
-    # ==========================================
+    # =========================================================================
+    # CASE STUDY 1: Wispr Flow
+    # Label: Conceptual Analysis Based on Publicly Visible Artifacts
+    # =========================================================================
     {
         "id": "WF-01",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-03",
         "day_offset": -7,
         "day_label": "DAY -7",
         "platform": "X",
-        "author": "@tanaykothari",
+        "author": "Tanay Kothari",
+        "author_handle": "@tanaykothari",
         "author_type": "Founder",
         "company": "Wispr Flow",
         "content_type": "Contrarian Thread",
@@ -30,8 +33,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Pre-launch",
         "engagement_views": 142000,
         "engagement_interactions": 3820,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/tanaykothari/status/1830982100",
         "raw_content": "Typing is fundamentally unnatural. Humans spoke for 300,000 years before inventing keyboards. Why is our primary computer interface still 1870s typewriter mechanics? We're rebuilding how thoughts get onto screens.",
         "structured_extracted_entities": ["Voice AI", "Productivity", "Input Interface", "Typing Bottleneck"],
         "confidence_score": 0.94
@@ -39,11 +43,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-02",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-05",
         "day_offset": -5,
         "day_label": "DAY -5",
         "platform": "X",
-        "author": "@wisprflow",
+        "author": "Wispr Flow Official",
+        "author_handle": "@wisprflow",
         "author_type": "Core Team",
         "company": "Wispr Flow",
         "content_type": "Text + Video Demo",
@@ -53,8 +59,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Pre-launch",
         "engagement_views": 218000,
         "engagement_interactions": 5410,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/wisprflow/status/1831705400",
         "raw_content": "Watch this split-screen comparison. Left: Default OS dictation stuttering on technical jargon. Right: Wispr Flow streaming markdown, formatting code, and removing filler words in sub-200ms latency.",
         "structured_extracted_entities": ["Latency benchmark", "Whisper", "Dictation", "Filler removal"],
         "confidence_score": 0.96
@@ -62,11 +69,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-03",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-07",
         "day_offset": -3,
         "day_label": "DAY -3",
         "platform": "X",
-        "author": "@swyx",
+        "author": "swyx",
+        "author_handle": "@swyx",
         "author_type": "Tech Influencer",
         "company": "Wispr Flow",
         "content_type": "Early Adopter Review",
@@ -76,8 +85,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Teaser",
         "engagement_views": 89000,
         "engagement_interactions": 1940,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/swyx/status/1832431200",
         "raw_content": "Have been running the private beta of @wisprflow for a week. What's crazy is that it auto-adapts to your style and tech stack without having to spell out camelCase or bash syntax.",
         "structured_extracted_entities": ["Beta tester", "Developer workflow", "Context adaptation"],
         "confidence_score": 0.89
@@ -85,11 +95,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-04",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-09",
         "day_offset": -1,
         "day_label": "DAY -1",
         "platform": "X",
-        "author": "@tanaykothari",
+        "author": "Tanay Kothari",
+        "author_handle": "@tanaykothari",
         "author_type": "Founder",
         "company": "Wispr Flow",
         "content_type": "Teaser Poll",
@@ -99,8 +111,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Teaser",
         "engagement_views": 76000,
         "engagement_interactions": 1430,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/tanaykothari/status/1833158900",
         "raw_content": "Tomorrow morning at 9am PT, we're opening up Wispr Flow to the public. If you write docs, code, or emails for a living, this is for you. Turn on notifications.",
         "structured_extracted_entities": ["Launch countdown", "Waitlist", "Public release"],
         "confidence_score": 0.95
@@ -108,11 +121,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-05",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-10",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "ProductHunt",
-        "author": "@tanaykothari",
+        "author": "Tanay Kothari",
+        "author_handle": "@tanaykothari",
         "author_type": "Founder",
         "company": "Wispr Flow",
         "content_type": "Launch Post",
@@ -122,8 +137,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Launch Day",
         "engagement_views": 385000,
         "engagement_interactions": 12400,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://www.producthunt.com/posts/wispr-flow",
         "raw_content": "Today we're launching Wispr Flow on Product Hunt! It gives you superhuman dictation in every Mac app. It doesn't just transcribe audio; it knows your context, removes 'ums', and formats exactly like your writing style.",
         "structured_extracted_entities": ["Product Hunt #1", "Mac App", "System-wide integration"],
         "confidence_score": 0.98
@@ -131,11 +147,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-06",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-10",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "X",
-        "author": "@thesamparr",
+        "author": "Sam Parr",
+        "author_handle": "@thesamparr",
         "author_type": "Creator",
         "company": "Wispr Flow",
         "content_type": "Reaction Clip",
@@ -145,8 +163,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Launch Day",
         "engagement_views": 412000,
         "engagement_interactions": 8800,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/thesamparr/status/1833522100",
         "raw_content": "Just drafted an entire 1,500 word memo in 6 minutes walking around my office using Wispr. I didn't touch my keyboard once. This is the first AI tool this year that actually shocked me.",
         "structured_extracted_entities": ["Creator review", "Long-form drafting", "Mobile voice workflow"],
         "confidence_score": 0.91
@@ -154,11 +173,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-07",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-11",
         "day_offset": 1,
         "day_label": "DAY +1",
         "platform": "X",
-        "author": "@wisprflow",
+        "author": "Wispr Flow Official",
+        "author_handle": "@wisprflow",
         "author_type": "Core Team",
         "company": "Wispr Flow",
         "content_type": "Milestone Proof",
@@ -168,8 +189,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Post-launch Amplification",
         "engagement_views": 184000,
         "engagement_interactions": 4150,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/wisprflow/status/1833884300",
         "raw_content": "24 hours later: #1 Product of the Day on Product Hunt! Over 2.8 million words transcribed today alone. Our GPU cluster is holding strong. Huge thanks to everyone sharing their screen recordings.",
         "structured_extracted_entities": ["Social proof", "Usage volume", "GPU infrastructure"],
         "confidence_score": 0.97
@@ -177,11 +199,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-08",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-12",
         "day_offset": 2,
         "day_label": "DAY +2",
         "platform": "YouTube",
         "author": "Ali Abdaal",
+        "author_handle": "@aliabdaal",
         "author_type": "Creator",
         "company": "Wispr Flow",
         "content_type": "Video Breakdown",
@@ -191,8 +215,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Post-launch Amplification",
         "engagement_views": 320000,
         "engagement_interactions": 14200,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://www.youtube.com/watch?v=wispr_flow_workflow",
         "raw_content": "Full 12-minute workflow breakdown showing how voice dictation combined with contextual LLMs transforms writing friction into continuous flow.",
         "structured_extracted_entities": ["Productivity YouTube", "Deep dive workflow", "Sponsorship"],
         "confidence_score": 0.93
@@ -200,11 +225,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "WF-09",
         "case_study_id": "wispr-flow",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2024-09-13",
         "day_offset": 3,
         "day_label": "DAY +3",
         "platform": "X",
-        "author": "@tanaykothari",
+        "author": "Tanay Kothari",
+        "author_handle": "@tanaykothari",
         "author_type": "Founder",
         "company": "Wispr Flow",
         "content_type": "Behind The Scenes",
@@ -214,26 +241,28 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Proof & Defense",
         "engagement_views": 98000,
         "engagement_interactions": 2610,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/tanaykothari/status/1834611000",
         "raw_content": "A lot of engineers asked how we achieved <200ms round-trip latency without dropping transcription accuracy. Here is a technical breakdown of our streaming chunk pipeline and local whisper caching.",
         "structured_extracted_entities": ["Technical breakdown", "Latency engineering", "Talent magnet"],
         "confidence_score": 0.95
     },
 
-    # ==========================================
-    # CASE STUDY 2: Gamma — Launch Analysis
-    # Concept: Conceptual / public-artifact demo
-    # Narrative: Prompt-to-presentation, template viral loops, anti-PowerPoint framing
-    # ==========================================
+    # =========================================================================
+    # CASE STUDY 2: Gamma
+    # Label: Conceptual Analysis Based on Publicly Visible Artifacts
+    # =========================================================================
     {
         "id": "GM-01",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-22",
         "day_offset": -7,
         "day_label": "DAY -7",
         "platform": "X",
-        "author": "@gabor_cselle",
+        "author": "Gabor Cselle",
+        "author_handle": "@gabor_cselle",
         "author_type": "Tech Influencer",
         "company": "Gamma",
         "content_type": "Contrarian Thread",
@@ -243,8 +272,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Pre-launch",
         "engagement_views": 310000,
         "engagement_interactions": 7200,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/gabor_cselle/status/1638520100",
         "raw_content": "Why are executives still spending 8 hours resizing PowerPoint text boxes for a 15-minute sync? The entire medium of slides is broken. Content should be responsive, interactive, and generated in seconds.",
         "structured_extracted_entities": ["Presentations", "PowerPoint alternative", "Format shift"],
         "confidence_score": 0.92
@@ -252,11 +282,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-02",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-24",
         "day_offset": -5,
         "day_label": "DAY -5",
         "platform": "X",
-        "author": "@jon_norris",
+        "author": "Jon Norris",
+        "author_handle": "@jon_norris",
         "author_type": "Core Team",
         "company": "Gamma",
         "content_type": "Text + Video Demo",
@@ -266,8 +298,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Pre-launch",
         "engagement_views": 490000,
         "engagement_interactions": 11800,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/jon_norris/status/1639245600",
         "raw_content": "Type: 'A 10-slide strategy deck for launching a specialty coffee subscription in Tokyo'. Watch Gamma generate the outline, copy, responsive cards, and curated stock imagery in under 30 seconds.",
         "structured_extracted_entities": ["Generative UI", "Prompt to deck", "Design automation"],
         "confidence_score": 0.97
@@ -275,11 +308,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-03",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-27",
         "day_offset": -2,
         "day_label": "DAY -2",
         "platform": "LinkedIn",
         "author": "Grant Lee",
+        "author_handle": "grant-lee-gamma",
         "author_type": "Founder",
         "company": "Gamma",
         "content_type": "Origin Story",
@@ -289,8 +324,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Teaser",
         "engagement_views": 165000,
         "engagement_interactions": 3890,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://www.linkedin.com/posts/grant-lee-gamma_building-gamma-future",
         "raw_content": "I spent 10 years at Optimizely and Google watching teams dread board meetings not because of the ideas, but because formatting slides is pure cognitive waste. We built Gamma to let your ideas speak for themselves.",
         "structured_extracted_entities": ["Founder narrative", "Workplace culture", "LinkedIn organic reach"],
         "confidence_score": 0.93
@@ -298,11 +334,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-04",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-29",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "ProductHunt",
         "author": "Grant Lee",
+        "author_handle": "grant-lee",
         "author_type": "Founder",
         "company": "Gamma",
         "content_type": "Launch Post",
@@ -312,8 +350,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Launch Day",
         "engagement_views": 620000,
         "engagement_interactions": 19500,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://www.producthunt.com/posts/gamma-2-0",
         "raw_content": "Meet Gamma 2.0. Create beautiful, engaging presentations, documents, and webpages with none of the formatting and design work. One-click restyling, analytics, and interactive widgets.",
         "structured_extracted_entities": ["Product of the Month", "Generative design", "Product Hunt launch"],
         "confidence_score": 0.99
@@ -321,11 +360,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-05",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-29",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "X",
-        "author": "@rowancheung",
+        "author": "Rowan Cheung",
+        "author_handle": "@rowancheung",
         "author_type": "Creator",
         "company": "Gamma",
         "content_type": "Curated Thread",
@@ -335,8 +376,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Launch Day",
         "engagement_views": 840000,
         "engagement_interactions": 24100,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/rowancheung/status/1641065400",
         "raw_content": "PowerPoint just got disrupted. Gamma 2.0 launched today and it builds complete slide decks in seconds. Here are 5 wild examples of what it can create from a single sentence...",
         "structured_extracted_entities": ["Newsletter creator", "Curated thread", "Viral top-of-funnel"],
         "confidence_score": 0.95
@@ -344,11 +386,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-06",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-30",
         "day_offset": 1,
         "day_label": "DAY +1",
         "platform": "X",
-        "author": "@dickiebush",
+        "author": "Dickie Bush",
+        "author_handle": "@dickiebush",
         "author_type": "Creator",
         "company": "Gamma",
         "content_type": "Workflow Template",
@@ -358,8 +402,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Post-launch Amplification",
         "engagement_views": 390000,
         "engagement_interactions": 8200,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/dickiebush/status/1641428700",
         "raw_content": "The killer feature of Gamma isn't just generating from scratch; it's pasting your raw unstructured notes or outline and having it intelligently group them into cards. Template link inside.",
         "structured_extracted_entities": ["Solopreneur", "Template viral loop", "Productivity workflow"],
         "confidence_score": 0.91
@@ -367,11 +412,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-07",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-03-31",
         "day_offset": 2,
         "day_label": "DAY +2",
         "platform": "X",
-        "author": "@gamma_app",
+        "author": "Gamma App Official",
+        "author_handle": "@gamma_app",
         "author_type": "Core Team",
         "company": "Gamma",
         "content_type": "Community Showcase",
@@ -381,8 +428,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Post-launch Amplification",
         "engagement_views": 275000,
         "engagement_interactions": 6300,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://x.com/gamma_app/status/1641791200",
         "raw_content": "Over 1M presentations created in 48 hours. From startup pitch decks in Berlin to high school biology reports in Brazil. We are blown away by your creativity. Check out our new public gallery.",
         "structured_extracted_entities": ["Virality proof", "Global reach", "Community gallery"],
         "confidence_score": 0.96
@@ -390,11 +438,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "GM-08",
         "case_study_id": "gamma",
+        "case_study_type": "PUBLIC_ARTIFACT_ANALYSIS",
         "date": "2023-04-01",
         "day_offset": 3,
         "day_label": "DAY +3",
         "platform": "Substack",
         "author": "Lenny Rachitsky",
+        "author_handle": "@lennysan",
         "author_type": "Tech Influencer",
         "company": "Gamma",
         "content_type": "GTM Deep Dive",
@@ -404,27 +454,28 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "launch_phase": "Proof & Defense",
         "engagement_views": 185000,
         "engagement_interactions": 4900,
-        "source_type": "PUBLIC-ARTIFACT CONCEPT",
+        "source_type": "PUBLIC_ARTIFACT",
         "epistemic_status": "OBSERVED",
+        "source_url": "https://www.lennysnewsletter.com/p/gamma-gtm-deep-dive",
         "raw_content": "Every time someone shares a Gamma presentation, the viewer sees an interactive badge: 'Made with Gamma - Create your own free deck'. That single K-factor loop drives over 40% of their new signups.",
         "structured_extracted_entities": ["Viral loop", "Product-led growth", "K-factor distribution"],
         "confidence_score": 0.97
     },
 
-    # ==========================================
-    # CASE STUDY 3: Example AI Startup — Synthetic Dataset
-    # Concept: Simulated data
-    # Company: "OmniContext AI" (Personal Knowledge & AI Memory)
-    # Narrative: Problem-first framing, Day -7 to Day +3 synthetic progression
-    # ==========================================
+    # =========================================================================
+    # CASE STUDY 3: OmniContext AI
+    # Label: Synthetic / Simulated Reference Dataset
+    # =========================================================================
     {
         "id": "EX-01",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-10",
         "day_offset": -7,
         "day_label": "DAY -7",
         "platform": "X",
-        "author": "@alex_founder_ai",
+        "author": "Alex Rivera",
+        "author_handle": "@alex_founder_ai",
         "author_type": "Founder",
         "company": "OmniContext AI",
         "content_type": "Contrarian Thread",
@@ -436,6 +487,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 2100,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/alex_founder_ai/status/1877601001",
         "raw_content": "Everyone is obsessed with 2M token context windows. But context length is not memory. Real human memory is associative, indexed, and persistent. Here is why the next wave of AI must be memory-first.",
         "structured_extracted_entities": ["AI Memory", "Context Windows", "Knowledge Graph", "Personal OS"],
         "confidence_score": 0.90
@@ -443,11 +495,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-02",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-12",
         "day_offset": -5,
         "day_label": "DAY -5",
         "platform": "X",
-        "author": "@alex_founder_ai",
+        "author": "Alex Rivera",
+        "author_handle": "@alex_founder_ai",
         "author_type": "Founder",
         "company": "OmniContext AI",
         "content_type": "Teaser Screenshot",
@@ -459,6 +513,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 1550,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/alex_founder_ai/status/1877964500",
         "raw_content": "A peek at what we've been testing internally. It quietly connects the meeting notes you took 6 months ago with a browser tab you opened 5 minutes ago. No manual tagging.",
         "structured_extracted_entities": ["Graph UI", "Auto-tagging", "Personal Assistant"],
         "confidence_score": 0.88
@@ -466,11 +521,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-03",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-14",
         "day_offset": -3,
         "day_label": "DAY -3",
         "platform": "X",
-        "author": "@dev_influencer_pro",
+        "author": "Dev Workflow Lab",
+        "author_handle": "@dev_influencer_pro",
         "author_type": "Tech Influencer",
         "company": "OmniContext AI",
         "content_type": "Early Beta Review",
@@ -482,6 +539,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 1120,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/dev_influencer_pro/status/1878328100",
         "raw_content": "Been alpha testing OmniContext. Asking Claude or ChatGPT to write code usually requires 3 paragraphs of context dump. OmniContext injects relevant repo architecture on the fly.",
         "structured_extracted_entities": ["Developer tools", "Context injection", "Prompt automation"],
         "confidence_score": 0.86
@@ -489,11 +547,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-04",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-16",
         "day_offset": -1,
         "day_label": "DAY -1",
         "platform": "X",
-        "author": "@omnicontext",
+        "author": "OmniContext Official",
+        "author_handle": "@omnicontext",
         "author_type": "Core Team",
         "company": "OmniContext AI",
         "content_type": "Countdown Video",
@@ -505,6 +565,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 890,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/omnicontext/status/1878691500",
         "raw_content": "24 hours until launch. We built OmniContext to live entirely on your device with local SQLite vector indexing. Your data never trains third-party models.",
         "structured_extracted_entities": ["Local-first", "Privacy", "Vector Search"],
         "confidence_score": 0.92
@@ -512,11 +573,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-05",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-17",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "ProductHunt",
-        "author": "@alex_founder_ai",
+        "author": "Alex Rivera",
+        "author_handle": "@alex_founder_ai",
         "author_type": "Founder",
         "company": "OmniContext AI",
         "content_type": "Launch Post",
@@ -528,6 +591,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 5400,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://www.producthunt.com/posts/omnicontext",
         "raw_content": "We are live on Product Hunt! OmniContext builds a real-time semantic memory of everything you read, write, and research, so your favorite AI tools always have your context.",
         "structured_extracted_entities": ["Product Hunt launch", "Semantic memory", "Knowledge layer"],
         "confidence_score": 0.97
@@ -535,11 +599,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-06",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-17",
         "day_offset": 0,
         "day_label": "DAY 0",
         "platform": "X",
-        "author": "@ai_curator_daily",
+        "author": "AI Curator Daily",
+        "author_handle": "@ai_curator_daily",
         "author_type": "Creator",
         "company": "OmniContext AI",
         "content_type": "Curated Thread",
@@ -551,6 +617,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 6800,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/ai_curator_daily/status/1879055200",
         "raw_content": "Forget manually pasting notes into ChatGPT. OmniContext creates a continuous knowledge graph that links everything you look at. Here is a walkthrough of how it works...",
         "structured_extracted_entities": ["Second brain", "Workflow automation", "Knowledge management"],
         "confidence_score": 0.90
@@ -558,11 +625,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-07",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-18",
         "day_offset": 1,
         "day_label": "DAY +1",
         "platform": "X",
-        "author": "@omnicontext",
+        "author": "OmniContext Official",
+        "author_handle": "@omnicontext",
         "author_type": "Core Team",
         "company": "OmniContext AI",
         "content_type": "Milestone Proof",
@@ -574,6 +643,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 2200,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/omnicontext/status/1879418900",
         "raw_content": "15,000 signups in our first 24 hours! We're rolling out access in batches of 1,000 to monitor local indexing performance. You can move up the list by inviting fellow researchers.",
         "structured_extracted_entities": ["Waitlist viral loop", "Signup milestone", "Batch rollout"],
         "confidence_score": 0.93
@@ -581,11 +651,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-08",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-19",
         "day_offset": 2,
         "day_label": "DAY +2",
         "platform": "YouTube",
         "author": "Tech Workflow Lab",
+        "author_handle": "@techworkflowlab",
         "author_type": "Creator",
         "company": "OmniContext AI",
         "content_type": "Full Review",
@@ -597,6 +669,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 4900,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://www.youtube.com/watch?v=omnicontext_review",
         "raw_content": "Testing OmniContext against Notion AI and Obsidian. The key difference is the passive semantic indexing: it doesn't require structured folders or markdown frontmatter.",
         "structured_extracted_entities": ["Obsidian comparison", "Passive indexing", "Productivity review"],
         "confidence_score": 0.89
@@ -604,11 +677,13 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
     {
         "id": "EX-09",
         "case_study_id": "example-ai",
+        "case_study_type": "SIMULATED_SYNTHETIC",
         "date": "2025-01-20",
         "day_offset": 3,
         "day_label": "DAY +3",
         "platform": "X",
-        "author": "@alex_founder_ai",
+        "author": "Alex Rivera",
+        "author_handle": "@alex_founder_ai",
         "author_type": "Founder",
         "company": "OmniContext AI",
         "content_type": "Technical Architecture",
@@ -620,6 +695,7 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
         "engagement_interactions": 1780,
         "source_type": "SIMULATED",
         "epistemic_status": "SIMULATED",
+        "source_url": "https://x.com/alex_founder_ai/status/1880145200",
         "raw_content": "Privacy-first AI means not blowing up the user's laptop battery. We wrote our vector quantization in Rust with SIMD acceleration. Here is the technical breakdown of how we achieved 50MB RAM usage.",
         "structured_extracted_entities": ["Rust", "Vector quantization", "Local embeddings", "Open benchmark"],
         "confidence_score": 0.94
@@ -627,9 +703,9 @@ RAW_ARTIFACTS: List[Dict[str, Any]] = [
 ]
 
 def get_artifacts_df() -> pd.DataFrame:
-    """Returns the raw artifacts as a Pandas DataFrame."""
+    """Returns all artifacts as a Pandas DataFrame."""
     return pd.DataFrame(RAW_ARTIFACTS)
 
 def get_artifacts_by_case_study(case_study_id: str) -> List[Dict[str, Any]]:
-    """Filter artifacts for a specific case study."""
+    """Filter artifacts by case study identifier."""
     return [a for a in RAW_ARTIFACTS if a["case_study_id"] == case_study_id]

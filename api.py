@@ -94,13 +94,11 @@ def get_hypotheses():
 
 
 @app.get("/api/agents/traces/{case_study_id}")
-def get_agent_traces(case_study_id: str):
-    """Retrieve ReAct agent execution traces for the 5 specialized agents."""
-    return {
-        "case_study_id": case_study_id,
-        "agents": AGENTS_METADATA,
-        "traces": SIMULATED_AGENT_TRACES.get(case_study_id, SIMULATED_AGENT_TRACES["wispr-flow"])
-    }
+def get_agent_traces(case_study_id: str, focus_topic: Optional[str] = Query("launch_sequence")):
+    """Retrieve multi-agent execution traces for the 3 tool-using agents (Research, Pattern Hunter, Skeptic)."""
+    from core.agent_orchestrator import run_agentic_research_pipeline
+    return run_agentic_research_pipeline(case_study_id, focus_topic=focus_topic)
+
 
 
 @app.post("/api/challenge")

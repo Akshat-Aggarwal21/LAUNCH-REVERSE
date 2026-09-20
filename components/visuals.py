@@ -164,11 +164,20 @@ def build_launch_dna_radar(dna_profile: Dict[str, Any]) -> go.Figure:
     """
     dims = dna_profile["dimensions"]
     categories = list(dims.keys())
-    values = list(dims.values())
+    values = [v["score"] if isinstance(v, dict) else v for v in dims.values()]
+    statuses = [v.get("epistemic_status", "INFERRED") if isinstance(v, dict) else "INFERRED" for v in dims.values()]
+    bases = [v.get("calculation_basis", "") if isinstance(v, dict) else "" for v in dims.values()]
 
     # Close the radar loop
     categories.append(categories[0])
     values.append(values[0])
+    statuses.append(statuses[0])
+    bases.append(bases[0])
+
+    hover_texts = [
+        f"<b>{c}</b>: {val}/100 [{st}]<br><i>Basis:</i> {b}"
+        for c, val, st, b in zip(categories, values, statuses, bases)
+    ]
 
     fig = go.Figure()
 
@@ -180,7 +189,8 @@ def build_launch_dna_radar(dna_profile: Dict[str, Any]) -> go.Figure:
         line=dict(color="#38bdf8", width=2),
         marker=dict(size=6, color="#38bdf8"),
         name=dna_profile["company_name"],
-        hoverinfo="r+theta"
+        hoverinfo="text",
+        hovertext=hover_texts
     ))
 
     fig.update_layout(

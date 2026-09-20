@@ -176,7 +176,23 @@ def get_badge_html(tag_type: str, label: str) -> str:
         "HYPOTHESIS": "badge-hypothesis",
         "SIMULATED": "badge-simulated",
         "COUNTEREVIDENCE": "badge-counter",
+        "COUNTER": "badge-counter",
         "CONCEPTUAL": "badge-inferred",
     }
     css_class = type_map.get(tag_type.upper(), "badge-observed")
     return f'<span class="badge {css_class}">{label}</span>'
+
+
+def render_html(html_content: str):
+    """
+    Renders pure HTML cleanly into Streamlit using st.html.
+    Prevents CommonMark from interpreting indented HTML lines as literal code blocks.
+    """
+    import streamlit as st
+    import textwrap
+    dedented = textwrap.dedent(html_content).strip()
+    if hasattr(st, "html"):
+        st.html(dedented)
+    else:
+        st.markdown(dedented, unsafe_allow_html=True)
+
