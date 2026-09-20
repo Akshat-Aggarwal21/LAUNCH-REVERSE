@@ -57,7 +57,7 @@ class LaunchAnalysisEngine:
         return LAUNCH_DNA_PROFILES.get(case_study_id, LAUNCH_DNA_PROFILES["wispr-flow"])
 
     def get_agent_traces(self, case_study_id: str) -> List[Dict[str, Any]]:
-        """Retrieve simulated ReAct agent execution trace."""
+        """Legacy simulated agent execution trace (unused by the live pipeline — kept for reference only)."""
         return SIMULATED_AGENT_TRACES.get(case_study_id, SIMULATED_AGENT_TRACES["wispr-flow"])
 
     def challenge_hypothesis(self, category_or_query: str) -> Dict[str, Any]:
