@@ -142,28 +142,20 @@ with st.sidebar:
 
 hero_html = """
 <div class="hero-box">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <div>
-            <span class="badge badge-simulated">RESEARCH PROTOTYPE</span>
-            <span class="badge badge-observed">AI-NATIVE · PYTHON BUILT</span>
-            <h1 style="font-family: 'JetBrains Mono', monospace; font-size: 1.65rem; color: #f8fafc; margin: 8px 0 6px 0; letter-spacing: -0.02em;">
-                Can we reverse-engineer a launch?
-            </h1>
-            <p style="font-size: 0.94rem; color: #cbd5e1; max-width: 820px; line-height: 1.5; margin: 0 0 10px 0;">
-                <b>LAUNCH//REVERSE</b> analyzes publicly visible launch artifacts and turns them into testable hypotheses about distribution using tool-augmented agents.
-            </p>
-        </div>
-        <div style="text-align: right; background: #0f172a; border: 1px solid #1e293b; padding: 10px 14px; border-radius: 6px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #64748b; display: block;">TARGET CONTEXT</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #38bdf8;">Social Capital Inc.</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #94a3b8; display: block; margin-top: 2px;">Technical Generalist Role</span>
-        </div>
-    </div>
+    <span class="badge badge-simulated">RESEARCH PROTOTYPE</span>
+    <span class="badge badge-observed">AI-NATIVE · PYTHON BUILT</span>
+    <h1 style="font-family: 'JetBrains Mono', monospace; font-size: 1.65rem; color: #f8fafc; margin: 8px 0 6px 0; letter-spacing: -0.02em;">
+        Can we reverse-engineer a launch?
+    </h1>
+    <p style="font-size: 0.94rem; color: #cbd5e1; max-width: 820px; line-height: 1.5; margin: 0 0 10px 0;">
+        <b>LAUNCH//REVERSE</b> analyzes publicly visible launch artifacts and turns them into testable hypotheses about distribution using tool-augmented agents.
+    </p>
 
     <div style="background: #0b0f19; border: 1px solid #1e293b; border-radius: 6px; padding: 12px 16px; margin-top: 8px;">
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94a3b8; line-height: 1.5;">
-            <b>INTELLECTUAL HONESTY NOTICE:</b> This project does not claim to reproduce Social Capital's internal methodology. 
-            It explores whether publicly observable launch artifacts can be modeled as structured evidence and analyzed for repeatable distribution patterns.
+            <b>INTELLECTUAL HONESTY NOTICE:</b> This is a research prototype exploring whether publicly observable
+            launch artifacts can be modeled as structured evidence and analyzed for repeatable distribution patterns.
+            It does not claim to reproduce any specific firm's internal methodology.
         </div>
     </div>
 </div>

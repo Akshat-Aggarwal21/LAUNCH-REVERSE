@@ -93,7 +93,7 @@ Using the structured artifact dataset, the system uncovered a real chronological
 ## 6. Two Operating Modes
 
 - **⚡ Demo Mode (Deterministic Local)**: Works 100% locally from curated and verified launch artifacts. Requires **zero API keys** and zero external network calls. Completely reproducible.
-- **🤖 Agent Mode (Tool-Using Loop)**: Triggers the live 3-agent orchestration (`Research Agent` → `Pattern Hunter` → `Skeptic Agent`) showing step-by-step tool invocations and live ReAct traces.
+- **🤖 Agent Mode (Tool-Using Loop)**: Triggers the live 3-agent orchestration (`Research Agent` → `Pattern Hunter` → `Skeptic Agent`) showing step-by-step tool invocations and live execution traces.
 
 ---
 
@@ -120,7 +120,7 @@ Using the structured artifact dataset, the system uncovered a real chronological
 - Break ambiguous, messy problems down into concrete, testable architectures.
 - Prototype fast, high-fidelity research tools in Python using Streamlit, FastAPI, and Pandas.
 - Design structured schemas that transform unstructured social posts into normalized evidence.
-- Build multi-agent workflows with specialized roles, bounded tools, and ReAct-style reasoning.
+- Build multi-agent workflows with specialized roles, bounded tools, and structured, auditable tool-call traces.
 - Enforce intellectual humility: treating patterns as unverified hypotheses until counterevidence has been evaluated.
 
 ---
