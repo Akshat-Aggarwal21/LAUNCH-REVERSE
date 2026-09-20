@@ -1,7 +1,7 @@
 """
 LAUNCH//REVERSE — Main Research Terminal
 "Reverse-engineering how product launches become distribution."
-An AI-native research tool prototype for Social Capital.
+An AI-native research tool prototype for reverse-engineering product launch distribution.
 """
 
 import streamlit as st
