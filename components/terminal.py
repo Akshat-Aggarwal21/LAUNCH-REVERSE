@@ -28,7 +28,7 @@ def render_agentic_workflow_trace(pipeline_result: Dict[str, Any]):
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
             <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #38bdf8; text-transform: uppercase;">
-                MULTI-AGENT RE-ACT WORKFLOW // 3 SPECIALIZED AGENTS + TOOLS
+                MULTI-AGENT TOOL-USE WORKFLOW // 3 SPECIALIZED AGENTS + TOOLS
             </span>
             <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: #f8fafc; margin: 4px 0 0 0;">
                 Evidence-Grounded Research Pipeline
