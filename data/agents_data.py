@@ -1,5 +1,5 @@
 """
-Agent system definitions and ReAct-style execution traces for LAUNCH//REVERSE.
+Agent system definitions and legacy simulated execution traces for LAUNCH//REVERSE (unused by the live pipeline — kept for reference only).
 Showcases multi-agent orchestration across 5 specialized agents.
 """
 

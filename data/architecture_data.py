@@ -60,7 +60,7 @@ PIPELINE_STAGES = [
 
 RESUME_CONNECTIONS = [
     {
-        "component": "AI Agents & Tool Use (ReAct Loop)",
+        "component": "AI Agents & Tool Use (Structured Tool-Call Pipeline)",
         "tech": "Python, Tool-augmented LLM orchestration",
         "resume_project": "ARIS Agent (Autonomous Research & Intelligence System)",
         "connection_detail": "Directly parallels the ARIS agent architecture: giving specialized LLM agents dedicated tool interfaces (MongoDB document retrieval, Python code execution, schema validation) rather than relying on unstructured chat prompts."
@@ -115,13 +115,13 @@ BUILD_LOG = [
         "step": "05",
         "title": "Designing the Production Architecture",
         "question": "How does this prototype scale into an enterprise intelligence system?",
-        "detail": "Designed the full production roadmap (FastAPI, MongoDB, vector indexing, ReAct tool agents) without building unnecessary infrastructure into this lightweight client-side demo."
+        "detail": "Designed the full production roadmap (FastAPI, MongoDB, vector indexing, tool-using agents) without building unnecessary infrastructure into this lightweight client-side demo."
     },
     {
         "step": "06",
         "title": "Building the Interactive Terminal",
         "question": "How do we make the thinking transparent in under 60 seconds?",
-        "detail": "Built the complete interactive Streamlit research terminal with Plotly Gantt/Timeline, Launch DNA radar, ReAct agent trace runner, and the signature 'Why This Insight?' inspector."
+        "detail": "Built the complete interactive Streamlit research terminal with Plotly Gantt/Timeline, Launch DNA radar, live agent trace runner, and the signature 'Why This Insight?' inspector."
     }
 ]
 
@@ -163,8 +163,8 @@ KNOW_VS_DONT_KNOW = {
             "detail": "Designing clean Pydantic and MongoDB document schemas that turn polymorphic social posts into normalized research artifacts."
         },
         {
-            "topic": "Multi-Agent ReAct Orchestration",
-            "detail": "Structuring agent workflows with explicit roles, specialized tool interfaces, and ReAct-style thought-action-observation cycles."
+            "topic": "Multi-Agent Tool-Use Orchestration",
+            "detail": "Structuring agent workflows with explicit roles, specialized tool interfaces, and deterministic, auditable tool-call sequences over structured data."
         },
         {
             "topic": "Intellectual Humility & Skepticism",
